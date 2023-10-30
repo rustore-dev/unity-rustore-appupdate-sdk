@@ -1,0 +1,9 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="ru.rustore.sdk:appupdate:0.2.0-QA">
+            <repositories>
+                <repository>../AndroidLibs/repo</repository>
+            </repositories>
+        </androidPackage>
+    </androidPackages>
+</dependencies>
