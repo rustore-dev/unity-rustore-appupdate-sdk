@@ -8,7 +8,7 @@ namespace RuStore.AppUpdate {
 
     public class RuStoreAppUpdateManager {
 
-        public static string PluginVersion = "0.2.0";
+        public static string PluginVersion = "0.2.1";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;
