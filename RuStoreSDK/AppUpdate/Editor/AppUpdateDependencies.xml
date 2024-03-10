@@ -1,6 +1,6 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="ru.rustore.sdk:appupdate:0.2.0">
+        <androidPackage spec="ru.rustore.sdk:appupdate:[2.0.0, 3.0.0)">
             <repositories>
                 <repository>https://artifactory-external.vkpartner.ru/artifactory/maven</repository>
             </repositories>

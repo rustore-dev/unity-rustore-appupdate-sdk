@@ -8,7 +8,7 @@ namespace RuStore.AppUpdate {
 
     public class RuStoreAppUpdateManager {
 
-        public static string PluginVersion = "0.2.1";
+        public static string PluginVersion = "2.0.0";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;
@@ -48,8 +48,7 @@ namespace RuStore.AppUpdate {
                 _managerWrapper = managerClass.GetStatic<AndroidJavaObject>("INSTANCE");
             }
 
-            _managerWrapper.Call("setMetricType", "unity");
-            _managerWrapper.Call("init");
+            _managerWrapper.Call("init", "unity");
             _isInitialized = true;
 
             return true;
