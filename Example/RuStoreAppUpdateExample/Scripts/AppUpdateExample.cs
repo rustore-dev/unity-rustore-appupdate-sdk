@@ -24,9 +24,9 @@ namespace RuStore.Example {
                 onSuccess: OnAppUodateInfoReceived);
         }
 
-        public void DownloadUpdateImmediate() {
+        public void StartImmediateUpdate() {
             RuStoreAppUpdateManager.Instance.RegisterListener(this);
-            RuStoreAppUpdateManager.Instance.StartUpdateFlowImmediate(OnAppUpdateError,
+            RuStoreAppUpdateManager.Instance.StartUpdateFlow(UpdateType.IMMEDIATE, OnAppUpdateError,
                 (result) => {
                     Debug.LogFormat("Update flow result -> {0}", result);
                     if (result == UpdateFlowResult.RESULT_CANCELED || result == UpdateFlowResult.RESULT_ACTIVITY_NOT_FOUND) {
@@ -36,9 +36,9 @@ namespace RuStore.Example {
 
         }
 
-        public void DownloadUpdate() {
+        public void StartFlexibleUpdate() {
             RuStoreAppUpdateManager.Instance.RegisterListener(this);
-            RuStoreAppUpdateManager.Instance.StartUpdateFlow(OnAppUpdateError,
+            RuStoreAppUpdateManager.Instance.StartUpdateFlow(UpdateType.FLEXIBLE, OnAppUpdateError,
                 (result) => {
                     Debug.LogFormat("Update flow result -> {0}", result);
                     if (result == UpdateFlowResult.RESULT_CANCELED) {
@@ -46,9 +46,9 @@ namespace RuStore.Example {
                     }
                 });
         }
-        public void DownloadUpdateSilent() {
+        public void StartSilentUpdate() {
             RuStoreAppUpdateManager.Instance.RegisterListener(this);
-            RuStoreAppUpdateManager.Instance.StartUpdateFlowSilent(OnAppUpdateError,
+            RuStoreAppUpdateManager.Instance.StartUpdateFlow(UpdateType.SILENT, OnAppUpdateError,
                 (result) => {
                     Debug.LogFormat("Update flow result -> {0}", result);
                 });
@@ -58,8 +58,11 @@ namespace RuStore.Example {
             ShowMessage("Error", string.Format("{0} : {1}", error.name, error.description));
         }
 
-        public void FinishUpdate() {
-            RuStoreAppUpdateManager.Instance.CompleteUpdate(OnAppUpdateError);
+        public void FinishSilentUpdate() {
+            RuStoreAppUpdateManager.Instance.CompleteUpdate(UpdateType.SILENT, OnAppUpdateError);
+        }
+        public void FinishFlexibleUpdate() {
+            RuStoreAppUpdateManager.Instance.CompleteUpdate(UpdateType.FLEXIBLE, OnAppUpdateError);
         }
 
         public void ShowUpdateProgress(float progress) {

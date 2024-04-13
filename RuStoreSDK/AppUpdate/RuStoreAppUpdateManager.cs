@@ -8,7 +8,7 @@ namespace RuStore.AppUpdate {
 
     public class RuStoreAppUpdateManager {
 
-        public static string PluginVersion = "2.0.0";
+        public static string PluginVersion = "3.0.0";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;
@@ -87,7 +87,7 @@ namespace RuStore.AppUpdate {
             }
         }
 
-        public void StartUpdateFlow(Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
+        public void StartUpdateFlow(UpdateType updateType, Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
             }
@@ -97,33 +97,7 @@ namespace RuStore.AppUpdate {
                     onSuccess?.Invoke((UpdateFlowResult)result); 
                 });
 
-            _managerWrapper.Call("startUpdateFlow", listener);
-        }
-        
-        public void StartUpdateFlowSilent(Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
-            if (!IsPlatformSupported(onFailure)) {
-                return;
-            }
-
-            var listener = new UpdateFlowResultListener(onFailure,
-                (result) => {
-                    onSuccess?.Invoke((UpdateFlowResult)result);
-                });
-
-            _managerWrapper.Call("startUpdateFlowSilent", listener);
-        }
-        
-        public void StartUpdateFlowImmediate(Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
-            if (!IsPlatformSupported(onFailure)) {
-                return;
-            }
-
-            var listener = new UpdateFlowResultListener(onFailure,
-                (result) => {
-                    onSuccess?.Invoke((UpdateFlowResult)result);
-                });
-
-            _managerWrapper.Call("startUpdateFlowImmediate", listener);
+            _managerWrapper.Call("startUpdateFlow", updateType.ToString(), listener);
         }
 
         public bool IsImmediateUpdateAllowed() {
@@ -134,13 +108,13 @@ namespace RuStore.AppUpdate {
             return _managerWrapper.Call<bool>("isImmediateUpdateAllowed");
         }
 
-        public void CompleteUpdate(Action<RuStoreError> onFailure) {
+        public void CompleteUpdate(UpdateType updateType, Action<RuStoreError> onFailure) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
             }
 
             var listener = new AppUpdateErrorListener(onFailure);
-            _managerWrapper.Call("completeUpdate", listener);
+            _managerWrapper.Call("completeUpdate", updateType.ToString(), listener);
         }
 
         private bool IsPlatformSupported(Action<RuStoreError> onFailure) {
