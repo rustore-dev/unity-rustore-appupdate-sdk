@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/RuStoreAppUpdateExample/Scenes/AppUpdateSampleScene.unity
+    guid: 7b688923f2286524aa451727c709ee83
   m_configObjects: {}
