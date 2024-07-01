@@ -66,7 +66,9 @@ namespace RuStore.Example {
         }
 
         public void ShowUpdateProgress(float progress) {
-            _updateLoadingBar.fillAmount = progress;
+            var scale = _updateLoadingBar.transform.localScale;
+            scale.x = progress;
+            _updateLoadingBar.transform.localScale = scale;
         }
 
         void OnAppUodateInfoReceived(AppUpdateInfo info) {
@@ -93,7 +95,7 @@ namespace RuStore.Example {
 
         void IInstallStateUpdateListener.OnStateUpdated(InstallState state) {
             if (state.installStatus == InstallState.InstallStatus.DOWNLOADED) {
-                ShowUpdateProgress(progress: 0f);
+                ShowUpdateProgress(progress: 1f);
             } else if (state.installStatus == InstallState.InstallStatus.FAILED) {
                 RuStoreAppUpdateManager.Instance.UnregisterListener(this);
                 ShowUpdateProgress(progress: 0f);
