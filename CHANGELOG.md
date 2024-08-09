@@ -1,7 +1,7 @@
 ## История изменений
 
 ### Release 6.0.0
-- Версия SDK push 6.1.0.
+- Версия SDK appUpdate 6.1.0.
 - RuStoreSDK помещена в отдельную assembly.
 
 
