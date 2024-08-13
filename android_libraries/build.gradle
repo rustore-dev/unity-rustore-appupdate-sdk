@@ -1,6 +1,6 @@
 ext {
     destination_project = '../appupdate_example'
-    rustore_appupdate_version = '6.+'
+    rustore_appupdate_version = '6.1.0'
     rustore_core_version = rustore_appupdate_version
     rustore_sdk_type = ''
     sdk_version_code = 1

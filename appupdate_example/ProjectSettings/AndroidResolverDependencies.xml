@@ -1,11 +1,11 @@
 <dependencies>
   <packages>
-    <package>ru.rustore.sdk:appupdate:6.+</package>
+    <package>ru.rustore.sdk:appupdate:6.1.0</package>
   </packages>
   <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.DefaultCompany.appupdate_example" />
+    <setting name="bundleId" value="ru.rustore.updateunity" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />
