@@ -4,7 +4,7 @@
 
 Плагин “RuStoreAppUpdateManager” помогает поддерживать актуальную версию вашего приложения на устройстве пользователя.
 
-Репозиторий содержит плагины “RuStoreAppUpdateManager” и “RuStoreCommon”, а также демонстрационное приложение с примерами использования и настроек. Поддерживаются версии Unity 2022+.
+Репозиторий содержит плагины “RuStoreAppUpdateManager” и “RuStoreCore”, а также демонстрационное приложение с примерами использования и настроек. Поддерживаются версии Unity 2022+.
 
 
 ### Сборка примера приложения
@@ -37,14 +37,12 @@
 
 2. Выполните сборку проекта командой gradle assemble.
 
-При успешном выполнении сборки в папках _“appupdate_example / Assets / RuStoreSDK / AppUpdate / Android”_ и _“appupdate_example / Assets / RuStoreSDK / Common / Android”_ будут обновлены файлы:
-- RuStoreUnityAppUpdate.aar
-- RuStoreUnityCore.aar
+При успешном выполнении сборки в папке _“ru.rustore.update / Runtime / Android”_ будет обновлен файл `RuStoreUnityAppUpdate.aar`.
 
 
 ### История изменений
 
-[CHANGELOG](CHANGELOG.md)
+[CHANGELOG](ru.rustore.update/CHANGELOG.md)
 
 
 ### Условия распространения
