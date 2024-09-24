@@ -6,7 +6,9 @@ namespace RuStore.AppUpdate.Internal {
 
     public class AppUpdateErrorListener : ErrorListener {
 
-        public AppUpdateErrorListener(Action<RuStoreError> onFailure) : base(onFailure) {
+        private static string javaClassName = "ru.rustore.unitysdk.appupdate.callbacks.CompleteUpdateListener";
+
+        public AppUpdateErrorListener(Action<RuStoreError> onFailure) : base(javaClassName, onFailure) {
         }
 
         protected override RuStoreError ConvertError(AndroidJavaObject errorObject) {
