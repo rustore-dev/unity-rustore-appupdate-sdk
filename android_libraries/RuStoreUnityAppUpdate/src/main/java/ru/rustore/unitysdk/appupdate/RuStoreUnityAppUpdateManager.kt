@@ -7,9 +7,9 @@ import ru.rustore.sdk.appupdate.model.AppUpdateInfo
 import ru.rustore.sdk.appupdate.model.AppUpdateOptions
 import ru.rustore.sdk.appupdate.model.AppUpdateType
 import ru.rustore.unitysdk.appupdate.callbacks.AppUpdateInfoResponseListener
+import ru.rustore.unitysdk.appupdate.callbacks.CompleteUpdateListener
 import ru.rustore.unitysdk.appupdate.callbacks.UpdateFlowResultListener
 import ru.rustore.unitysdk.core.PlayerProvider
-import ru.rustore.unitysdk.core.callbacks.ErrorListener
 
 object RuStoreUnityAppUpdateManager {
 
@@ -73,11 +73,8 @@ object RuStoreUnityAppUpdateManager {
         }
     }
 
-    fun completeUpdate(updateType: String, listener: ErrorListener) {
-        completeUpdate(listener, AppUpdateOptions.Builder().appUpdateType(getAppUpdateType(updateType)).build())
-    }
-
-    fun completeUpdate(listener: ErrorListener, appUpdateOptions: AppUpdateOptions) {
+    fun completeUpdate(updateType: String, listener: CompleteUpdateListener) {
+        val appUpdateOptions = AppUpdateOptions.Builder().appUpdateType(getAppUpdateType(updateType)).build()
         updateManager.completeUpdate(appUpdateOptions).addOnFailureListener {
             throwable -> listener.OnFailure(throwable)
         }
