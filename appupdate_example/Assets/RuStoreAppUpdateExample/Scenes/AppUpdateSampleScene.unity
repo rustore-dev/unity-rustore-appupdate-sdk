@@ -2402,7 +2402,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2145377536}
-        m_TargetAssemblyTypeName: RuStore.UnitySample.UI.MessageBox, Assembly-CSharp
+        m_TargetAssemblyTypeName: RuStore.AppUpdateExample.UI.MessageBox, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:

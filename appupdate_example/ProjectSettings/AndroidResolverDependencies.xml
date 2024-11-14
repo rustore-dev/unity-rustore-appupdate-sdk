@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>ru.rustore.sdk:appupdate:6.1.0</package>
+    <package>ru.rustore.sdk:appupdate:7.0.0</package>
   </packages>
   <files />
   <settings>

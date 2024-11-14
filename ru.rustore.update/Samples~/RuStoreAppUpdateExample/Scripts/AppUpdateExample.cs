@@ -1,10 +1,10 @@
 using RuStore.AppUpdate;
-using RuStore.UnitySample.UI;
+using RuStore.AppUpdateExample.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RuStore.Example {
+namespace RuStore.AppUpdateExample {
 
     public class AppUpdateExample : MonoBehaviour, IInstallStateUpdateListener {
 

@@ -57,7 +57,7 @@
 
 Дополнительная помощь и инструкции доступны в [документациии RuStore](https://www.rustore.ru/help/) и по электронной почте support@rustore.ru.
 
-[10]: https://www.rustore.ru/help/sdk/updates/unity/6-1-0
-[20]: https://www.rustore.ru/help/sdk/updates/unity/6-1-0#checkavailable
-[30]: https://www.rustore.ru/help/sdk/updates/unity/6-1-0#scenariodelayedupdate
-[40]: https://www.rustore.ru/help/sdk/updates/unity/6-1-0#%D0%B3%D0%B8%D0%B1%D0%BA%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F
+[10]: https://www.rustore.ru/help/sdk/updates/unity/7-0-0
+[20]: https://www.rustore.ru/help/sdk/updates/unity/7-0-0#checkavailable
+[30]: https://www.rustore.ru/help/sdk/updates/unity/7-0-0#scenariodelayedupdate
+[40]: https://www.rustore.ru/help/sdk/updates/unity/7-0-0#installupdateflexible
