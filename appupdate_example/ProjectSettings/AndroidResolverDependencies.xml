@@ -1,6 +1,9 @@
 <dependencies>
   <packages>
-    <package>ru.rustore.sdk:appupdate:7.0.0</package>
+    <package>androidx.lifecycle:lifecycle-viewmodel:2.5.1</package>
+    <package>androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1</package>
+    <package>ru.rustore.sdk:appupdate:8.0.0-alpha02</package>
+    <package>ru.rustore.sdk:core:8.0.0-alpha02</package>
   </packages>
   <files />
   <settings>
