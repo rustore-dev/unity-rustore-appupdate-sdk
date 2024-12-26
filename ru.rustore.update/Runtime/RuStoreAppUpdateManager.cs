@@ -6,19 +6,34 @@ using System.Collections.Generic;
 
 namespace RuStore.AppUpdate {
 
+    /// <summary>
+    /// Класс реализует API для трех способов обновлений.
+    /// В настоящий момент поддерживаются: отложенное, тихое (без UI от RuStore) и принудительное обновление.
+    /// </summary>
     public class RuStoreAppUpdateManager {
 
+        /// <summary>
+        /// Версия плагина.
+        /// </summary>
         public static string PluginVersion = "7.0.0";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;
 
         private bool _isInitialized;
+
+        /// <summary>
+        /// Возвращает true, если синглтон был инициализирован, в противном случае — false.
+        /// </summary>
         public bool IsInitialized => _isInitialized;
         private AndroidJavaObject _managerWrapper;
 
         private Dictionary<IInstallStateUpdateListener, InstallStateUpdateListener> _stateListeners = new Dictionary<IInstallStateUpdateListener, InstallStateUpdateListener>();
 
+        /// <summary>
+        /// Возвращает единственный экземпляр RuStoreAppUpdateManager (реализация паттерна Singleton).
+        /// Если экземпляр еще не создан, создает его.
+        /// </summary>
         public static RuStoreAppUpdateManager Instance {
             get {
                 if (!_isInstanceInitialized) {
@@ -32,6 +47,10 @@ namespace RuStore.AppUpdate {
         private RuStoreAppUpdateManager() {
         }
 
+        /// <summary>
+        /// Выполняет инициализацию синглтона RuStoreAppUpdateManager.
+        /// </summary>
+        /// <returns>Возвращает true, если инициализация была успешно выполнена, в противном случае — false.</returns>
         public bool Init() {
             if (_isInitialized) {
                 Debug.LogError("Error: RuStore AppUpdate Manager is already initialized");
@@ -54,6 +73,17 @@ namespace RuStore.AppUpdate {
             return true;
         }
 
+        /// <summary>
+        /// Выполняет проверку наличия обновлений.
+        /// </summary>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// Возвращает объект RuStore.AppUpdate.AppUpdateInfo с информцаией о необходимости обновления.
+        /// </param>
         public void GetAppUpdateInfo(Action<RuStoreError> onFailure, Action<AppUpdateInfo> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -63,6 +93,10 @@ namespace RuStore.AppUpdate {
             _managerWrapper.Call("getAppUpdateInfo", listener);
         }
 
+        /// <summary>
+        /// Выполняет регистрацию слушателя статуса скачивания обновления.
+        /// </summary>
+        /// <param name="listener">Объект класса, реализующего интерфейс RuStore.AppUpdate.Internal.IInstallStateUpdateListener.</param>
         public void RegisterListener(IInstallStateUpdateListener listener) {
             if (!IsPlatformSupported(null)) {
                 return;
@@ -75,6 +109,11 @@ namespace RuStore.AppUpdate {
             }
         }
 
+        /// <summary>
+        /// Если необходимости в слушателе больше нет, воспользуйтесь методом удаления слушателя UnregisterListener(),
+        /// передав в метод ранее зарегистрированный слушатель.
+        /// </summary>
+        /// <param name="listener">Объект класса, реализующего интерфейс RuStore.AppUpdate.Internal.IInstallStateUpdateListener.</param>
         public void UnregisterListener(IInstallStateUpdateListener listener) {
             if (!IsPlatformSupported(null)) {
                 return;
@@ -87,6 +126,18 @@ namespace RuStore.AppUpdate {
             }
         }
 
+        /// <summary>
+        /// Запускает процедуру скачивания обновления приложения.
+        /// </summary>
+        /// <param name="updateType">Тип процедуры скачивания обновления.</param>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// Возвращает объект RuStore.AppUpdate.RuStore.UpdateFlowResult с информацией о результате операции обновления.
+        /// </param>
         public void StartUpdateFlow(UpdateType updateType, Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -100,6 +151,10 @@ namespace RuStore.AppUpdate {
             _managerWrapper.Call("startUpdateFlow", updateType.ToString(), listener);
         }
 
+        /// <summary>
+        /// Выполняет проверку доступности принудительного обновления.
+        /// </summary>
+        /// <returns>Возвращает true, если принудительное обновление доступно, в противном случае — false.</returns>
         public bool IsImmediateUpdateAllowed() {
             if (!IsPlatformSupported(null)) {
                 return false;
@@ -108,6 +163,15 @@ namespace RuStore.AppUpdate {
             return _managerWrapper.Call<bool>("isImmediateUpdateAllowed");
         }
 
+        /// <summary>
+        /// Запускает процедуру установки обновления.
+        /// В метод можно передавать только два типа завершения установки RuStore.AppUpdate.UpdateType.FLEXIBLE и RuStore.AppUpdate.UpdateType.SILENT.
+        /// </summary>
+        /// <param name="updateType">Тип процедуры завершения обновления.</param>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
         public void CompleteUpdate(UpdateType updateType, Action<RuStoreError> onFailure) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
