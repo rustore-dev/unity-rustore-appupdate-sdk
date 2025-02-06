@@ -73,21 +73,21 @@ namespace RuStore.AppUpdateExample {
 
         void OnAppUodateInfoReceived(AppUpdateInfo info) {
 
-            var message = "Обновление недоступно";
+            var message = "РћР±РЅРѕРІР»РµРЅРёРµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ";
 
             switch (info.updateAvailability) {
                 case AppUpdateInfo.UpdateAvailability.UPDATE_AVAILABLE:
-                    message = string.Format("Доступно обновление v{0}", info.availableVersionCode);
+                    message = string.Format("Р”РѕСЃС‚СѓРїРЅРѕ РѕР±РЅРѕРІР»РµРЅРёРµ v{0}", info.availableVersionCode);
                     break;
                 case AppUpdateInfo.UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS:
-                    message = "Обновление в процессе";
+                    message = "РћР±РЅРѕРІР»РµРЅРёРµ РІ РїСЂРѕС†РµСЃСЃРµ";
                     break;
                 default:
-                    message = "Обновление недоступно";
+                    message = "РћР±РЅРѕРІР»РµРЅРёРµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ";
                     break;
             }
 
-            ShowMessage("Обновление", message);
+            ShowMessage("РћР±РЅРѕРІР»РµРЅРёРµ", message);
 
             var isImmediateUpdateAllowed = RuStoreAppUpdateManager.Instance.IsImmediateUpdateAllowed();
             Debug.LogFormat("isImmediateUpdateAllowed: {0}", isImmediateUpdateAllowed);
