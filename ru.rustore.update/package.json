@@ -1,6 +1,6 @@
 {
   "name": "ru.rustore.update",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "displayName": "RuStore Update",
   "description": "RuStore SDK for app updates",
   "unity": "2022.3",
@@ -12,7 +12,7 @@
     "updates"
   ],
   "dependencies": {
-    "ru.rustore.core": "9.0.1"
+    "ru.rustore.core": "9.0.2"
   },
   "author": {
     "name": "RuStore",

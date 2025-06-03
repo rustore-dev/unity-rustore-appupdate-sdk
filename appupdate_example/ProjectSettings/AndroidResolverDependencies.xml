@@ -2,8 +2,8 @@
   <packages>
     <package>androidx.lifecycle:lifecycle-viewmodel:2.5.1</package>
     <package>androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1</package>
-    <package>ru.rustore.sdk:appupdate:9.0.1</package>
-    <package>ru.rustore.sdk:core:9.0.1</package>
+    <package>ru.rustore.sdk:appupdate:9.0.2</package>
+    <package>ru.rustore.sdk:core:9.0.2</package>
   </packages>
   <files />
   <settings>
