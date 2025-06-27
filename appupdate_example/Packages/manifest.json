@@ -6,7 +6,7 @@
     "com.unity.timeline": "1.7.5",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.0",
-    "ru.rustore.core": "file:../../upm_tgz/ru.rustore.core-9.0.2.tgz",
+    "ru.rustore.core": "file:../../upm_tgz/ru.rustore.core-9.1.0.tgz",
     "ru.rustore.update": "file:../../ru.rustore.update",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
