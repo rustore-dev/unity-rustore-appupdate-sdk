@@ -15,7 +15,7 @@ namespace RuStore.AppUpdate {
         /// <summary>
         /// Версия плагина.
         /// </summary>
-        public static string PluginVersion = "9.1.0";
+        public static string PluginVersion = "10.0.0";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;

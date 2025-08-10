@@ -26,5 +26,5 @@
 
 Дополнительная помощь и инструкции доступны в [документации RuStore](https://www.rustore.ru/help/) и по электронной почте support@rustore.ru.
 
-[10]: https://www.rustore.ru/help/sdk/updates/unity/9-1-0
-[20]: https://gitflic.ru/project/rustore/unity-rustore-appupdate-sdk/blob/raw?file=unitypackages%2FRuStoreUnityAppUpdateSDK-9.1.0.unitypackage&inline=false
+[10]: https://www.rustore.ru/help/sdk/updates/unity/10-0-0
+[20]: https://gitflic.ru/project/rustore/unity-rustore-appupdate-sdk/blob/raw?file=unitypackages%2FRuStoreUnityAppUpdateSDK-10.0.0.unitypackage&inline=false
