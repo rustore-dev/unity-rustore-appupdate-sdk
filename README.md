@@ -11,7 +11,8 @@
 #### Сборка примера приложения
 
 Вы можете ознакомиться с демонстрационным приложением содержащим представление работы всех методов sdk:
-- [appupdate_example](https://gitflic.ru/project/rustore/unity-rustore-appupdate-sdk/file?file=appupdate_example)
+- [appupdate_example](https://gitflic.ru/project/rustore/unity-rustore-appupdate-sdk/file?file=appupdate_example) — демонстрационный проект на Unity 2022.3.8f1 для поддержки долгоживущих проектов (может быть автоматически сконвертирован на более поздние версии Unity).
+- [appupdate_example_6000](https://gitflic.ru/project/rustore/unity-rustore-appupdate-sdk/file?file=appupdate_example_6000) — демонстрационный проект на Unity 6000.0.55f1 для актуальных версий Unity.
 
 #### Установка плагина в свой проект
 
