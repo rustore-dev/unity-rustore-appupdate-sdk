@@ -1,9 +1,9 @@
 <dependencies>
-    <androidPackages>
-        <androidPackage spec="ru.rustore.sdk:appupdate:10.0.0">
-            <repositories>
-                <repository>https://artifactory-external.vkpartner.ru/artifactory/maven</repository>
-            </repositories>
-        </androidPackage>
-    </androidPackages>
+  <androidPackages>
+    <androidPackage spec='ru.rustore.sdk:appupdate:10.5.1'>
+      <repositories>
+        <repository>https://nexus-external.rustore.ru/repository/maven-rustore-exposed</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
 </dependencies>

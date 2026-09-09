@@ -1,0 +1,1 @@
+bool isAllowed = RuStoreAppUpdateManager.Instance.IsImmediateUpdateAllowed();

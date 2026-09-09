@@ -25,7 +25,14 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
-  m_UserSelectedRegistryName: 
+  - m_Id: scoped:project:RuStore Nexus
+    m_Name: RuStore Nexus
+    m_Url: https://nexus-external.rustore.ru/repository/npm-unity-rustore-exposed
+    m_Scopes:
+    - ru.rustore
+    m_IsDefault: 0
+    m_Capabilities: 0
+  m_UserSelectedRegistryName: RuStore Nexus
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_Modified: 0

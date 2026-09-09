@@ -1,0 +1,1 @@
+bool isInitialized = RuStoreAppUpdateManager.Instance.Init();

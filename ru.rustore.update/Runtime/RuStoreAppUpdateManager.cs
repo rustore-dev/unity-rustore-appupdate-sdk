@@ -15,7 +15,7 @@ namespace RuStore.AppUpdate {
         /// <summary>
         /// Версия плагина.
         /// </summary>
-        public static string PluginVersion = "10.0.0";
+        public static string PluginVersion = "10.5.1";
 
         private static RuStoreAppUpdateManager _instance;
         private static bool _isInstanceInitialized;
@@ -34,6 +34,7 @@ namespace RuStore.AppUpdate {
         /// Возвращает единственный экземпляр RuStoreAppUpdateManager (реализация паттерна Singleton).
         /// Если экземпляр еще не создан, создает его.
         /// </summary>
+        /// <example>@include public_static_RuStoreAppUpdateManager_Instance.cs</example>
         public static RuStoreAppUpdateManager Instance {
             get {
                 if (!_isInstanceInitialized) {
@@ -51,6 +52,7 @@ namespace RuStore.AppUpdate {
         /// Выполняет инициализацию синглтона RuStoreAppUpdateManager.
         /// </summary>
         /// <returns>Возвращает true, если инициализация была успешно выполнена, в противном случае — false.</returns>
+        /// <example>@include public_bool_Init.cs</example>
         public bool Init() {
             if (_isInitialized) {
                 Debug.LogError("Error: RuStore AppUpdate Manager is already initialized");
@@ -62,6 +64,7 @@ namespace RuStore.AppUpdate {
             }
 
             CallbackHandler.InitInstance();
+            ActivityInstaller.Instance.Install();
 
             using (var managerClass = new AndroidJavaClass("ru.rustore.unitysdk.appupdate.RuStoreUnityAppUpdateManager")) {
                 _managerWrapper = managerClass.GetStatic<AndroidJavaObject>("INSTANCE");
@@ -84,6 +87,7 @@ namespace RuStore.AppUpdate {
         /// Действие, выполняемое при успешном завершении операции.
         /// Возвращает объект RuStore.AppUpdate.AppUpdateInfo с информцаией о необходимости обновления.
         /// </param>
+        /// <example>@include public_void_GetAppUpdateInfo.cs</example>
         public void GetAppUpdateInfo(Action<RuStoreError> onFailure, Action<AppUpdateInfo> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -97,6 +101,7 @@ namespace RuStore.AppUpdate {
         /// Выполняет регистрацию слушателя статуса скачивания обновления.
         /// </summary>
         /// <param name="listener">Объект класса, реализующего интерфейс RuStore.AppUpdate.Internal.IInstallStateUpdateListener.</param>
+        /// <example>@include public_void_RegisterListener.cs</example>
         public void RegisterListener(IInstallStateUpdateListener listener) {
             if (!IsPlatformSupported(null)) {
                 return;
@@ -114,6 +119,7 @@ namespace RuStore.AppUpdate {
         /// передав в метод ранее зарегистрированный слушатель.
         /// </summary>
         /// <param name="listener">Объект класса, реализующего интерфейс RuStore.AppUpdate.Internal.IInstallStateUpdateListener.</param>
+        /// <example>@include public_void_UnregisterListener.cs</example>
         public void UnregisterListener(IInstallStateUpdateListener listener) {
             if (!IsPlatformSupported(null)) {
                 return;
@@ -138,6 +144,7 @@ namespace RuStore.AppUpdate {
         /// Действие, выполняемое при успешном завершении операции.
         /// Возвращает объект RuStore.AppUpdate.RuStore.UpdateFlowResult с информацией о результате операции обновления.
         /// </param>
+        /// <example>@include public_void_StartUpdateFlow.cs</example>
         public void StartUpdateFlow(UpdateType updateType, Action<RuStoreError> onFailure, Action<UpdateFlowResult> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -155,6 +162,7 @@ namespace RuStore.AppUpdate {
         /// Выполняет проверку доступности принудительного обновления.
         /// </summary>
         /// <returns>Возвращает true, если принудительное обновление доступно, в противном случае — false.</returns>
+        /// <example>@include public_bool_IsImmediateUpdateAllowed.cs</example>
         public bool IsImmediateUpdateAllowed() {
             if (!IsPlatformSupported(null)) {
                 return false;
@@ -172,6 +180,7 @@ namespace RuStore.AppUpdate {
         /// Действие, выполняемое в случае ошибки.
         /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
         /// </param>
+        /// <example>@include public_void_CompleteUpdate.cs</example>
         public void CompleteUpdate(UpdateType updateType, Action<RuStoreError> onFailure) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
