@@ -1,0 +1,1 @@
+RuStoreAppUpdateManager.Instance.RegisterListener(listener);

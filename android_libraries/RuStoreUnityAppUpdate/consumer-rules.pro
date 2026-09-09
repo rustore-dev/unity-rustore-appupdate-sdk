@@ -1,0 +1,2 @@
+-keep class ru.rustore.unitysdk.appupdate.** { *; }
+-keep interface ru.rustore.unitysdk.appupdate.** { *; }
